@@ -1,0 +1,209 @@
+<!-- Indique au navigateur qu'il s'agit d'un document HTML5 moderne -->
+<!DOCTYPE html>
+<!-- Ouvre la balise HTML principale et définit la langue du site en français -->
+<html lang="fr">
+<!-- Début de l'en-tête du document (contient les réglages, les balises pour Google et les styles) -->
+<head>
+    <!-- Définit l'encodage des caractères en UTF-8 pour gérer correctement les accents -->
+    <meta charset="UTF-8">
+    <!-- Adapte l'affichage du site à la largeur de l'écran (smartphones et tablettes) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- TITRE OFFICIEL DU SITE (Ce qui s'affiche dans l'onglet et que Google lit en priorité) -->
+    <title>La feuille d'acanthe</title>
+    
+    <!-- DESCRIPTION POUR GOOGLE (Le petit texte explicatif qui apparaîtra sous votre lien dans les résultats de recherche) -->
+    <meta name="description" content="Découvrez La feuille d'acanthe, votre site officiel. Plongez dans notre univers élégant, nos créations et nos services.">
+    
+    <!-- MOTS-CLÉS POUR LES MOTEURS DE RECHERCHE -->
+    <meta name="keywords" content="la feuille d'acanthe, design, univers, site officiel">
+
+    <!-- Début de la zone de style CSS (pour personnaliser l'apparence visuelle du site) -->
+    <style>
+        /* SÉLECTIONNEUR DU CORPS DE LA PAGE (L'arrière-plan global et les règles de base) */
+        body {
+            /* Définit la police de caractère principale (style élégant avec empattements) */
+            font-family: 'Playfair Display', 'Georgia', serif;
+            /* Supprime les marges extérieures par défaut créées par le navigateur */
+            margin: 0;
+            /* Supprime les espaces intérieurs par défaut créés par le navigateur */
+            padding: 0;
+            /* Définit la couleur de fond de tout le site (beige teinte bois) */
+            background-color: #F4EBE1;
+            /* Définit la couleur par défaut de tous les textes (noir) */
+            color: #1A1A1A;
+            /* Aligne tous les textes et contenus au centre par défaut */
+            text-align: center;
+            /* Active le mode Flexbox pour organiser la mise en page verticale */
+            display: flex;
+            /* Aligne les éléments du haut vers le bas (en colonne) */
+            flex-direction: column;
+            /* Assure que la page prend au minimum toute la hauteur de l'écran visible */
+            min-height: 100vh;
+            /* Distribue l'espace pour pousser le pied de page tout en bas */
+            justify-content: space-between;
+        }
+
+        /* SÉLECTIONNEUR DU BLOC D'EN-TÊTE (Bandeau du haut) */
+        header {
+            /* Applique la couleur de fond bordeaux profond */
+            background-color: #581822;
+            /* Définit la couleur du texte à l'intérieur du bandeau (beige) */
+            color: #F4EBE1;
+            /* Ajoute de l'espace intérieur (80px en haut/bas, 20px à gauche/droite) */
+            padding: 80px 20px;
+            /* Ajoute une bordure noire fine au bas du bandeau pour séparer du reste */
+            border-bottom: 2px solid #1A1A1A;
+            /* Ajoute une ombre légère sous le bandeau pour créer un effet de relief */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* SÉLECTIONNEUR DU TITRE PRINCIPAL (H1) */
+        h1 {
+            /* Fixe la taille du texte du grand titre */
+            font-size: 3.2em;
+            /* Annule la marge extérieure par défaut du titre */
+            margin: 0;
+            /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine et chic */
+            font-weight: 400;
+            /* Écarte légèrement les lettres les unes des autres (effet haut de gamme) */
+            letter-spacing: 2px;
+            /* Transforme automatiquement le texte en MAJUSCULES */
+            text-transform: uppercase;
+        }
+
+        /* SÉLECTIONNEUR DU SOUS-TITRE */
+        p.subtitle {
+            /* Met le texte du sous-titre en italique */
+            font-style: italic;
+            /* Définit la taille du texte du sous-titre */
+            font-size: 1.1em;
+            /* Rendant le texte légèrement plus doux (85% d'opacité) */
+            opacity: 0.85;
+            /* Décale le sous-titre de 15px vers le bas sous le titre */
+            margin-top: 15px;
+            /* Écarte légèrement les lettres du sous-titre */
+            letter-spacing: 1px;
+        }
+
+        /* SÉLECTIONNEUR DU CONTENU PRINCIPAL */
+        main {
+            /* Marge intérieure de la zone de contenu (60px haut/bas, 20px gauche/droite) */
+            padding: 60px 20px;
+            /* Limite la largeur maximale du contenu pour éviter des lignes trop longues */
+            max-width: 700px;
+            /* Centre automatiquement le bloc de contenu au milieu de la page */
+            margin: auto;
+        }
+
+        /* SÉLECTIONNEUR DES TITRES DE SECTION (H2) */
+        h2 {
+            /* Colore les sous-titres en bordeaux */
+            color: #581822;
+            /* Définit une épaisseur de texte fine */
+            font-weight: 400;
+            /* Fixe la taille du texte du sous-titre h2 */
+            font-size: 2em;
+            /* Écarte légèrement les lettres pour conserver le style chic */
+            letter-spacing: 1px;
+            /* Ajoute une marge de 20px sous le titre h2 avant le paragraphe */
+            margin-bottom: 20px;
+        }
+
+        /* SÉLECTIONNEUR DES PARAGRAPHES DE TEXTE */
+        p {
+            /* Augmente l'espace entre les lignes de texte pour faciliter la lecture */
+            line-height: 1.8;
+            /* Fixe la taille du texte des paragraphes */
+            font-size: 1.1em;
+            /* Applique un gris très foncé presque noir pour une lecture confortable */
+            color: #333333;
+        }
+
+        /* SÉLECTIONNEUR DU BOUTON D'ACTION */
+        .btn {
+            /* Permet de donner de la taille et des marges au bouton tout en restant aligné */
+            display: inline-block;
+            /* Décale le bouton de 30px vers le bas sous le texte */
+            margin-top: 30px;
+            /* Espace intérieur du bouton (14px haut/bas, 32px gauche/droite) */
+            padding: 14px 32px;
+            /* Rend le fond du bouton transparent (style minimaliste) */
+            background-color: transparent;
+            /* Définit la couleur du texte du bouton en bordeaux */
+            color: #581822;
+            /* Dessine le contour fin du bouton en bordeaux */
+            border: 2px solid #581822;
+            /* Supprime le soulignement par défaut des liens internet */
+            text-decoration: none;
+            /* Met le texte du bouton en demi-gras */
+            font-weight: 600;
+            /* Écarte les lettres du bouton */
+            letter-spacing: 1.5px;
+            /* Met le texte du bouton en MAJUSCULES */
+            text-transform: uppercase;
+            /* Ajuste la taille du texte du bouton */
+            font-size: 0.9em;
+            /* Rend le changement de couleur fluide lors du passage de la souris */
+            transition: all 0.4s ease;
+        }
+
+        /* COMPORTEMENT DU BOUTON AU PASSAGE DE LA SOURIS (HOVER) */
+        .btn:hover {
+            /* Remplit le fond du bouton en bordeaux lors du survol */
+            background-color: #581822;
+            /* Change la couleur du texte en beige lors du survol */
+            color: #F4EBE1;
+        }
+
+        /* SÉLECTIONNEUR DU PIED DE PAGE */
+        footer {
+            /* Ajoute de l'espace à l'intérieur du pied de page */
+            padding: 20px;
+            /* Réduit la taille du texte pour les mentions de bas de page */
+            font-size: 0.85em;
+            /* Applique une couleur grise discrète au texte */
+            color: #666666;
+            /* Écarte légèrement les lettres du bas de page */
+            letter-spacing: 1px;
+            /* Trace une ligne fine au-dessus du pied de page pour le séparer */
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    <!-- Fin de la zone de style CSS -->
+    </style>
+<!-- Fin de l'en-tête du document -->
+</head>
+<!-- Début du corps de la page (le contenu visible à l'écran) -->
+<body>
+
+    <!-- Bloc d'en-tête en haut de page -->
+    <header>
+        <!-- Titre principal du site -->
+        <h1>La feuille d'acanthe</h1>
+        <!-- Sous-titre ou devise -->
+        <p class="subtitle">L'élégance à l'état pur</p>
+    <!-- Fin du bloc d'en-tête -->
+    </header>
+
+    <!-- Bloc de contenu principal de la page -->
+    <main>
+        <!-- Titre de la section de présentation -->
+        <h2>Notre univers</h2>
+        <!-- Paragraphe explicatif de présentation -->
+        <p>Le site est actuellement en cours de création. Nous préparons un écrin à la hauteur de nos ambitions. Revenez très vite pour découvrir notre univers.</p>
+        <!-- Bouton cliquable qui ouvre directement un e-mail vers votre adresse -->
+        <a href="mailto:contact.lafeuille@gmail.com" class="btn">Entrer en contact</a>
+    <!-- Fin du bloc de contenu principal -->
+    </main>
+
+    <!-- Pied de page tout en bas -->
+    <footer>
+        <!-- Symbole copyright suivi du texte de droits réservés -->
+        &copy; 2026 La feuille d'acanthe — Tous droits réservés.
+    <!-- Fin du pied de page -->
+    </footer>
+
+<!-- Fin du corps de la page -->
+</body>
+<!-- Fin complète du fichier HTML -->
+</html>
