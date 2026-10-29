@@ -114,15 +114,48 @@
                 <a href="#projet" class="w-full sm:w-auto bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-or/40 shadow-xl flex items-center justify-center gap-3">
                     <i class="fa-solid fa-camera-retro text-or"></i> Déposer mon projet
                 </a>
-                <a href="#contact" class="w-full sm:w-auto bg-transparent hover:bg-[#2C2522]/5 text-[#2C2522] px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-[#2C2522]/30 flex items-center justify-center gap-3">
-                    <span>Nous contacter</span>
+                <a href="#atelier" class="w-full sm:w-auto bg-transparent hover:bg-[#2C2522]/5 text-[#2C2522] px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-[#2C2522]/30 flex items-center justify-center gap-3">
+                    <span>Découvrir l'atelier</span>
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- SECTION L'ATELIER (Avec images d'immersion) -->
+    <section id="atelier" class="py-24 bg-[#FAF8F5] border-y border-[#2C2522]/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Immersion Artisanale</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-4">L'Atelier La feuille d'acanthe</h2>
+                <p class="text-[#2C2522]/80 text-sm font-light">Un espace dédié à la restauration, où le savoir-faire traditionnel rencontre la précision moderne pour redonner vie au bois.</p>
+            </div>
+
+            <!-- Grille de 3 images d'atelier -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="relative group overflow-hidden rounded-2xl shadow-md border border-[#2C2522]/10">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Outils et travail du bois" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2C2522]/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white text-xs uppercase tracking-widest font-medium border-l-2 border-or pl-3">Façonnage & Outils</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-md border border-[#2C2522]/10">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Meuble en cours de patine" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2C2522]/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white text-xs uppercase tracking-widest font-medium border-l-2 border-or pl-3">Patines & Finitions d'art</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-md border border-[#2C2522]/10">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=800&q=80" alt="Ambiance de l'atelier" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2C2522]/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white text-xs uppercase tracking-widest font-medium border-l-2 border-or pl-3">Pièces restaurées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SAVOIR-FAIRE -->
-    <section id="savoir-faire" class="py-24 bg-[#EFECE3] border-y border-[#2C2522]/10">
+    <section id="savoir-faire" class="py-24 bg-[#EFECE3] border-b border-[#2C2522]/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Expertise & Précision</span>
@@ -179,7 +212,7 @@
         </div>
     </section>
 
-    <!-- SECTION DÉPOSER MON PROJET (Remplace le simulateur) -->
+    <!-- SECTION DÉPOSER MON PROJET -->
     <section id="projet" class="py-24 bg-[#F5F2EB] relative">
         <div class="max-w-4xl mx-auto px-6">
             
