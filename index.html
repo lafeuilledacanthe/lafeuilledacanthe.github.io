@@ -1,492 +1,257 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La feuille d'acanthe | Rénovation, Aérogommage & Patine d'Art</title>
-    <!-- Tailwind CSS pour un design ultra-propre -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        bordeaux: {
-                            DEFAULT: '#581827',
-                            dark: '#3f111c',
-                            light: '#722435',
-                        },
-                        bois: {
-                            beige: '#F5F2EB', // Fond beige chaleureux demandé
-                            light: '#FAF8F5',
-                            warm: '#E6E1D6',
-                            card: '#FFFFFF',
-                            dark: '#2C2522'
-                        },
-                        or: {
-                            DEFAULT: '#A8834C',
-                            light: '#C5A880'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>La feuille d'acanthe | Rénovation & Aérogommage</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F5F2EB; color: #2C2522; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
-        
-        /* Filtres artistiques pour le simulateur de meuble */
-        .filter-aérogommage { filter: sepia(30%) contrast(110%) brightness(105%) grayscale(20%); }
-        .filter-patine-bordeaux { filter: hue-rotate(310deg) saturate(140%) brightness(95%); }
-        .filter-bleu-canard { filter: hue-rotate(180deg) saturate(130%) brightness(90%); }
-        .filter-vert-sauge { filter: hue-rotate(90deg) saturate(120%) brightness(95%); }
-        .filter-beige-lin { filter: sepia(40%) contrast(90%) brightness(120%); }
-        .filter-noir-mat { filter: grayscale(100%) contrast(160%) brightness(40%); }
+        :root {
+            --bg-beige: #F5F2EB;
+            --primary-bordeaux: #581827;
+            --accent-gold: #A8834C;
+            --text-dark: #2C2522;
+            --card-bg: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-beige);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--bg-beige);
+            border-bottom: 1px solid rgba(88, 24, 39, 0.15);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-bordeaux);
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-bordeaux);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-bordeaux);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            opacity: 0.85;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            background-color: var(--primary-bordeaux);
+            color: white;
+            padding: 0.85rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #3e101b;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-bordeaux);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(44, 37, 34, 0.04);
+            text-align: left;
+            border-top: 3px solid var(--primary-bordeaux);
+        }
+
+        .service-card h3 {
+            color: var(--primary-bordeaux);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Section Demande Sur-Mesure */
+        .project-section {
+            background-color: #EFECE4;
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            box-shadow: 0 15px 35px rgba(44, 37, 34, 0.05);
+            max-width: 800px;
+            margin: 0 auto 5rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-bordeaux);
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid #d5d0c5;
+            border-radius: 8px;
+            background: white;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(88, 24, 39, 0.1);
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            opacity: 0.7;
+        }
     </style>
 </head>
-<body class="bg-[#F5F2EB] text-[#2C2522] selection:bg-bordeaux selection:text-white">
+<body>
 
-    <!-- Notification discrète -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-bordeaux border border-or/30 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm">
-        <i class="fa-solid fa-circle-check text-or"></i>
-        <span id="toast-msg">Action effectuée avec succès</span>
-    </div>
-
-    <!-- En-tête / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-[#F5F2EB]/90 backdrop-blur-md border-b border-[#2C2522]/10">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full border border-or flex items-center justify-center bg-bordeaux text-or font-serif font-bold text-lg group-hover:scale-105 transition shadow-sm">
-                    FA
-                </div>
-                <div>
-                    <span class="font-serif text-lg tracking-wider text-[#2C2522] block font-semibold">La feuille d'acanthe</span>
-                    <span class="text-[10px] uppercase tracking-widest text-or font-medium">Rénovation & Patine d'Art</span>
-                </div>
-            </a>
-
-            <nav class="hidden md:flex items-center gap-8 text-sm tracking-wide font-medium">
-                <a href="#atelier" class="text-[#2C2522]/80 hover:text-bordeaux transition">L'Atelier</a>
-                <a href="#savoir-faire" class="text-[#2C2522]/80 hover:text-bordeaux transition">Savoir-Faire</a>
-                <a href="#simulateur" class="text-bordeaux font-semibold hover:text-bordeaux-light transition flex items-center gap-2">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i> Simulateur IA
-                </a>
-                <a href="#stages" class="text-[#2C2522]/80 hover:text-bordeaux transition">Stages & Formations</a>
-                <a href="#contact" class="text-[#2C2522]/80 hover:text-bordeaux transition">Contact</a>
-            </nav>
-
-            <div class="flex items-center gap-4">
-                <a href="#simulateur" class="hidden sm:inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-5 py-2.5 rounded-full text-xs font-medium uppercase tracking-widest border border-or/30 transition shadow-md">
-                    <span>Relooker mon meuble</span>
-                </a>
-                <button id="mobile-menu-btn" class="md:hidden text-[#2C2522] text-xl p-2">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Menu mobile -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#FAF8F5] border-b border-[#2C2522]/10 px-6 py-6 space-y-4">
-            <a href="#atelier" class="block text-[#2C2522] hover:text-bordeaux font-medium">L'Atelier</a>
-            <a href="#savoir-faire" class="block text-[#2C2522] hover:text-bordeaux font-medium">Savoir-Faire</a>
-            <a href="#simulateur" class="block text-bordeaux font-semibold">Simulateur IA</a>
-            <a href="#stages" class="block text-[#2C2522] hover:text-bordeaux font-medium">Stages & Formations</a>
-            <a href="#contact" class="block text-[#2C2522] hover:text-bordeaux font-medium">Contact</a>
-        </div>
+    <header>
+        <div class="logo">La feuille d'acanthe</div>
+        <nav>
+            <a href="#services">Savoir-faire</a>
+            <a href="#projet">Projet sur-mesure</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#F5F2EB]">
-        <!-- Effet de lumière chaleureux -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-or/10 rounded-full blur-3xl pointer-events-none"></div>
-        
-        <div class="max-w-5xl mx-auto px-6 text-center relative z-10 py-20">
-            <span class="inline-block text-bordeaux text-xs uppercase tracking-[0.3em] mb-4 border-b border-bordeaux/40 pb-1 font-semibold">
-                Artisanat d'Excellence & Meubles de Caractère
-            </span>
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-[#2C2522] mb-6 leading-tight">
-                Sublimer l'histoire <br>de vos <span class="italic text-bordeaux font-normal">meubles anciens</span>
-            </h1>
-            <p class="text-[#2C2522]/80 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                Spécialistes en aérogommage respectueux des bois, patines d'art sur mesure et finitions haut de gamme au cœur de la Bretagne.
+    <section class="hero">
+        <h1>L'art de révéler vos meubles</h1>
+        <p>Rénovation artisanale, aérogommage, patines d'exception et stages de relooking au cœur de notre atelier.</p>
+        <a href="#projet" class="btn">Déposer mon projet</a>
+    </section>
+
+    <div class="section" id="services">
+        <h2 class="section-title">Nos Prestations</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Aérogommage</h3>
+                <p>Technique douce de décapage respectueuse du bois pour retrouver l'essence originelle de vos meubles.</p>
+            </div>
+            <div class="service-card">
+                <h3>Patines & Finitions</h3>
+                <p>Mise en valeur sur-mesure de vos pièces avec des teintes et patines adaptées à votre intérieur.</p>
+            </div>
+            <div class="service-card">
+                <h3>Stages & Vente</h3>
+                <p>Apprenez les techniques de relooking lors de nos ateliers ou découvrez nos pièces uniques restaurées.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION PROJET SUR MESURE -->
+    <div class="section" id="projet">
+        <div class="project-section">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">Votre projet sur-mesure</h2>
+            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.85;">
+                Décrivez-nous votre demande et importez la photo de votre meuble. Nous vous recontacterons avec une étude personnalisée et un visuel de votre meuble tel que vous le souhaitez.
             </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#simulateur" class="w-full sm:w-auto bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-or/40 shadow-xl flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-wand-magic-sparkles text-or"></i> Tester le simulateur IA
-                </a>
-                <a href="#contact" class="w-full sm:w-auto bg-transparent hover:bg-[#2C2522]/5 text-[#2C2522] px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-[#2C2522]/30 flex items-center justify-center gap-3">
-                    <span>Nous confier un projet</span>
-                </a>
-            </div>
+
+            <form action="mailto:contact.lafeuilledacanthe@gmail.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Votre nom :</label>
+                    <input type="text" id="name" name="Nom" placeholder="Ex: Marie Dupont" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Votre e-mail :</label>
+                    <input type="email" id="email" name="Email" placeholder="Ex: marie@exemple.fr" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Décrivez votre envie (couleur, effet, style recherché) :</label>
+                    <textarea id="description" name="Description du projet" placeholder="Ex: Je souhaite un meuble en bois cérusé beige avec des touches bordeaux sur les moulures..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Importer la photo de votre meuble :</label>
+                    <input type="file" id="photo" name="Photo du meuble" accept="image/*">
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="submit" class="btn">Envoyer ma demande</button>
+                </div>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- SAVOIR-FAIRE -->
-    <section id="savoir-faire" class="py-24 bg-[#EFECE3] border-y border-[#2C2522]/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Expertise & Précision</span>
-                <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-4">Nos Premiums Prestations</h2>
-                <p class="text-[#2C2522]/80 text-sm font-light">Chaque meuble est unique et reçoit une attention sur mesure, alliant techniques traditionnelles et design contemporain.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Carte 1 -->
-                <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-wind"></i>
-                    </div>
-                    <h3 class="font-serif text-xl text-[#2C2522] mb-3 font-semibold">Aérogommage Haute Précision</h3>
-                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Technique de décapage douce propulsant un abrasif naturel à basse pression. Idéal pour décaper les bois tendres ou durs sans les abîmer ni les creuser.
-                    </p>
-                    <ul class="text-xs text-[#2C2522]/80 space-y-2 border-t border-[#2C2522]/10 pt-4">
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Respect des moulures et sculptures</li>
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Zéro produit chimique agressif</li>
-                    </ul>
-                </div>
-
-                <!-- Carte 2 -->
-                <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-paintbrush"></i>
-                    </div>
-                    <h3 class="font-serif text-xl text-[#2C2522] mb-3 font-semibold">Patines & Finitions d'Art</h3>
-                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Création de nuances uniques, effets cérusés, rechampis, peintures minérales et cires naturelles pour un meuble parfaitement intégré à votre intérieur.
-                    </p>
-                    <ul class="text-xs text-[#2C2522]/80 space-y-2 border-t border-[#2C2522]/10 pt-4">
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Nuances bordeaux, noir mat, vert sauge</li>
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Finition vernie ou cirée haut de gamme</li>
-                    </ul>
-                </div>
-
-                <!-- Carte 3 -->
-                <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
-                    <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="font-serif text-xl text-[#2C2522] mb-3 font-semibold">Stages & Vente de Produits</h3>
-                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Apprenez les secrets de la revalorisation de meubles lors de nos ateliers pratiques en petit comité, et retrouvez nos peintures et cires professionnelles.
-                    </p>
-                    <ul class="text-xs text-[#2C2522]/80 space-y-2 border-t border-[#2C2522]/10 pt-4">
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Ateliers découverte & perfectionnement</li>
-                        <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Sélection de produits éco-responsables</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SIMULATEUR IA CÔTÉ CLIENT -->
-    <section id="simulateur" class="py-24 bg-[#F5F2EB] relative">
-        <div class="max-w-6xl mx-auto px-6">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-bordeaux text-xs uppercase tracking-[0.3em] mb-2 block font-semibold">Innovation Interactive</span>
-                <h2 class="font-serif text-3xl sm:text-5xl text-[#2C2522] mb-4">Simulateur IA de Relooking</h2>
-                <p class="text-[#2C2522]/80 text-sm sm:text-base font-light">
-                    Testez instantanément différentes finitions sur un meuble d'exemple ou importez la photo de votre propre meuble pour visualiser votre projet avant rénovation !
-                </p>
-            </div>
-
-            <!-- Interface principale du Simulateur -->
-            <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-6 sm:p-10 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Colonne de gauche : Contrôles & Upload -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-3">1. Choisissez un meuble ou téléchargez le vôtre</label>
-                        <div class="grid grid-cols-3 gap-3 mb-4">
-                            <button onclick="loadPresetMeuble('buffet')" class="preset-btn p-2 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux text-xs text-[#2C2522] transition flex flex-col items-center gap-1 bg-[#F5F2EB]">
-                                <i class="fa-solid fa-box text-bordeaux text-base"></i> Buffet Ancien
-                            </button>
-                            <button onclick="loadPresetMeuble('commode')" class="preset-btn p-2 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux text-xs text-[#2C2522] transition flex flex-col items-center gap-1 bg-[#F5F2EB]">
-                                <i class="fa-solid fa-chestnut text-bordeaux text-base"></i> Commode
-                            </button>
-                            <button onclick="loadPresetMeuble('bibliotheque')" class="preset-btn p-2 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux text-xs text-[#2C2522] transition flex flex-col items-center gap-1 bg-[#F5F2EB]">
-                                <i class="fa-solid fa-book text-bordeaux text-base"></i> Bibliothèque
-                            </button>
-                        </div>
-                        
-                        <!-- Upload input -->
-                        <label for="file-upload" class="cursor-pointer border-2 border-dashed border-[#2C2522]/20 hover:border-bordeaux rounded-2xl p-4 flex items-center justify-center gap-3 transition bg-[#F5F2EB]/50 group">
-                            <i class="fa-solid fa-cloud-arrow-up text-bordeaux text-xl group-hover:scale-110 transition"></i>
-                            <span class="text-xs text-[#2C2522] font-medium">Importer une photo de votre meuble</span>
-                            <input id="file-upload" type="file" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
-                        </label>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-3">2. Sélectionnez l'effet / la couleur désirée</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button onclick="applyFilter('aerogommage', 'Aérogommage Bois Brut naturel')" class="finition-btn p-3 rounded-xl border border-bordeaux bg-bordeaux/10 text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#D2B48C] border border-black/20"></span> Bois Aérogommé
-                            </button>
-                            <button onclick="applyFilter('bordeaux', 'Patine Bordeaux Acanthe')" class="finition-btn p-3 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux bg-[#F5F2EB] text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#581827] border border-white/20"></span> Bordeaux Acanthe
-                            </button>
-                            <button onclick="applyFilter('bleu', 'Bleu Canard Profond')" class="finition-btn p-3 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux bg-[#F5F2EB] text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#1b4d3e] border border-white/20"></span> Bleu Canard
-                            </button>
-                            <button onclick="applyFilter('vert', 'Vert Sauge Atelier')" class="finition-btn p-3 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux bg-[#F5F2EB] text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#879a78] border border-white/20"></span> Vert Sauge
-                            </button>
-                            <button onclick="applyFilter('beige', 'Beige Lin Lumineux')" class="finition-btn p-3 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux bg-[#F5F2EB] text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#E5DCC5] border border-black/20"></span> Beige Lin
-                            </button>
-                            <button onclick="applyFilter('noir', 'Noir Mat Empire')" class="finition-btn p-3 rounded-xl border border-[#2C2522]/15 hover:border-bordeaux bg-[#F5F2EB] text-[#2C2522] text-xs font-medium text-left transition flex items-center gap-3">
-                                <span class="w-3 h-3 rounded-full bg-[#1c1917] border border-white/20"></span> Noir Mat
-                            </button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2">3. Votre description / envie personnalisée (Style Gemini IA)</label>
-                        <textarea id="user-prompt" rows="3" class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none resize-none" placeholder="Ex: Je souhaite conserver le plateau en bois brut aérogommé et peindre le corps en vert sauge avec une patine dorée sur les moulures..."></textarea>
-                    </div>
-
-                    <button onclick="envoyerSimulationMail()" class="w-full bg-bordeaux hover:bg-bordeaux-light text-white py-4 rounded-xl text-xs uppercase tracking-widest font-bold transition shadow-lg flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane text-or"></i> Envoyer ce projet à l'atelier
-                    </button>
-                </div>
-
-                <!-- Colonne de droite : Aperçu visuel en direct -->
-                <div class="lg:col-span-7 bg-[#EFECE3] border border-[#2C2522]/10 rounded-2xl p-4 flex flex-col items-center justify-center relative min-h-[420px] shadow-inner">
-                    <div class="absolute top-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest text-bordeaux border border-bordeaux/20 flex items-center gap-2 shadow-sm">
-                        <span id="badge-style" class="w-2 h-2 rounded-full bg-bordeaux animate-pulse"></span>
-                        <span id="current-filter-name">Aérogommage Bois Brut naturel</span>
-                    </div>
-
-                    <!-- Conteneur d'image avec effet IA -->
-                    <div class="w-full h-[350px] sm:h-[400px] flex items-center justify-center overflow-hidden rounded-xl relative group">
-                        <img id="preview-img" src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80" alt="Simulation Meuble" class="w-full h-full object-cover filter-aérogommage transition duration-500 rounded-xl shadow-2xl">
-                        
-                        <!-- Effet de scan IA lors du changement -->
-                        <div id="ai-scan-overlay" class="absolute inset-0 bg-gradient-to-b from-bordeaux/20 to-transparent opacity-0 pointer-events-none transition duration-300"></div>
-                    </div>
-
-                    <div class="mt-4 flex items-center justify-between w-full text-xs text-[#2C2522]/80">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-wand-magic text-bordeaux"></i> Simulation IA interactive en direct</span>
-                        <span class="italic text-[11px]">La feuille d'acanthe - Atelier</span>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- STAGES & FORMATIONS -->
-    <section id="stages" class="py-24 bg-[#EFECE3] border-y border-[#2C2522]/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Transmission & Passion</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-6">Participez à nos Stages de Relooking</h2>
-                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Vous souhaitez apprendre à décaper un meuble par aérogommage, maîtriser l'art de la patine ou préparer des effets cérusés sur vos propres pièces ? Rejoignez nos sessions de formation pratiques au sein de l'atelier.
-                    </p>
-                    <ul class="space-y-4 mb-8 text-sm text-[#2C2522]">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                            <span><strong>Stage Découverte (1 jour) :</strong> Apprentissage des bases du ponçage, aérogommage et première patine.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                            <span><strong>Stage Maître d'Art (2 jours) :</strong> Amenez votre petit meuble et repartez avec entièrement rénové de vos mains !</span>
-                        </li>
-                    </ul>
-                    <a href="mailto:contact.lafeuilledacanthe@gmail.com?subject=Réservation%20de%20stage" class="inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-medium transition border border-or/30 shadow-lg">
-                        <span>Réserver une place en stage</span>
-                    </a>
-                </div>
-                <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-3xl p-8 relative overflow-hidden shadow-sm">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-bordeaux/5 rounded-full blur-2xl"></div>
-                    <h3 class="font-serif text-2xl text-[#2C2522] mb-4">Prochaines Sessions 2026</h3>
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-2xl bg-[#F5F2EB] border border-[#2C2522]/10 flex items-center justify-between">
-                            <div>
-                                <span class="text-xs text-bordeaux font-semibold uppercase tracking-wider block">12 & 13 Mai 2026</span>
-                                <span class="text-sm font-semibold text-[#2C2522]">Stage Intensif Meuble Ancien</span>
-                            </div>
-                            <span class="text-xs bg-bordeaux/10 text-bordeaux border border-bordeaux/30 px-3 py-1 rounded-full font-medium">3 places restantes</span>
-                        </div>
-                        <div class="p-4 rounded-2xl bg-[#F5F2EB] border border-[#2C2522]/10 flex items-center justify-between">
-                            <div>
-                                <span class="text-xs text-bordeaux font-semibold uppercase tracking-wider block">06 & 07 Juin 2026</span>
-                                <span class="text-sm font-semibold text-[#2C2522]">Techniques de Patines & Cires</span>
-                            </div>
-                            <span class="text-xs bg-bordeaux/10 text-bordeaux border border-bordeaux/30 px-3 py-1 rounded-full font-medium">4 places restantes</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT & FOOTER -->
-    <footer id="contact" class="bg-[#2C2522] text-[#F5F2EB] pt-20 pb-12 border-t border-[#2C2522]/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-8 h-8 rounded-full border border-or flex items-center justify-center bg-bordeaux text-or font-serif font-bold text-sm">
-                            FA
-                        </div>
-                        <span class="font-serif text-lg tracking-wider text-[#F5F2EB] font-semibold">La feuille d'acanthe</span>
-                    </div>
-                    <p class="text-[#F5F2EB]/70 text-xs font-light leading-relaxed mb-6">
-                        Atelier artisanal spécialisé dans la rénovation, l'aérogommage et la création de patines sur mobilier d'exception.
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <a href="mailto:contact.lafeuilledacanthe@gmail.com" class="w-10 h-10 rounded-full border border-white/20 hover:border-or flex items-center justify-center transition text-[#F5F2EB] hover:text-or">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                        <a href="https://github.com/lafeuilledacanthe" target="_blank" class="w-10 h-10 rounded-full border border-white/20 hover:border-or flex items-center justify-center transition text-[#F5F2EB] hover:text-or">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-serif text-[#F5F2EB] text-base font-semibold mb-4">Contact Direct</h4>
-                    <p class="text-xs text-[#F5F2EB]/80 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-envelope text-or"></i>
-                        <a href="mailto:contact.lafeuilledacanthe@gmail.com" class="hover:text-or transition underline">contact.lafeuilledacanthe@gmail.com</a>
-                    </p>
-                    <p class="text-xs text-[#F5F2EB]/80 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-location-dot text-or"></i>
-                        <span>Bretagne, France</span>
-                    </p>
-                    <p class="text-xs text-[#F5F2EB]/80 flex items-center gap-2">
-                        <i class="fa-solid fa-globe text-or"></i>
-                        <span>https://lafeuilledacanthe.github.io</span>
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-serif text-[#F5F2EB] text-base font-semibold mb-4">Newsletter & Actualités</h4>
-                    <p class="text-xs text-[#F5F2EB]/70 mb-4 font-light">Recevez nos conseils de relooking et les dates des prochains stages.</p>
-                    <form onsubmit="event.preventDefault(); showToast('Merci pour votre inscription !');" class="flex gap-2">
-                        <input type="email" placeholder="Votre email..." required class="bg-[#1c1917] border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-or flex-1">
-                        <button type="submit" class="bg-bordeaux hover:bg-bordeaux-light text-white px-5 py-2.5 rounded-xl text-xs uppercase tracking-widest font-medium transition border border-or/30">
-                            OK
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5F2EB]/60 font-light">
-                <p>&copy; 2026 La feuille d'acanthe. Tous droits réservés.</p>
-                <p class="mt-4 sm:mt-0">Hébergé par <a href="https://lafeuilledacanthe.github.io" class="text-or hover:underline">GitHub Pages</a></p>
-            </div>
-        </div>
+    <footer id="contact">
+        <p>&copy; 2026 La feuille d'acanthe — contact.lafeuilledacanthe@gmail.com</p>
     </footer>
 
-    <!-- Script JavaScript Interactif & Simulateur IA -->
-    <script>
-        // Gestion du menu mobile
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Fonction Toast de notification
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            toastMsg.textContent = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 4000);
-        }
-
-        // Base de données d'exemples de meubles pour le simulateur
-        const presetMeubles = {
-            buffet: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=1000&q=80",
-            commode: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80",
-            bibliotheque: "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=1000&q=80"
-        };
-
-        let currentFilterClass = 'filter-aérogommage';
-        let currentFilterName = 'Aérogommage Bois Brut naturel';
-
-        function loadPresetMeuble(type) {
-            const img = document.getElementById('preview-img');
-            img.src = presetMeubles[type];
-            showToast("Meuble chargé dans le simulateur");
-        }
-
-        // Gestion de l'upload d'image par l'utilisateur
-        function handleImageUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('preview-img');
-                    img.src = e.target.result;
-                    showToast("Photo de votre meuble importée avec succès !");
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // Application du filtre visuel artistique
-        function applyFilter(filterType, filterName) {
-            const img = document.getElementById('preview-img');
-            const scanOverlay = document.getElementById('ai-scan-overlay');
-            const nameSpan = document.getElementById('current-filter-name');
-
-            // Animation scan IA
-            scanOverlay.classList.remove('opacity-0');
-            scanOverlay.classList.add('opacity-100');
-
-            setTimeout(() => {
-                scanOverlay.classList.remove('opacity-100');
-                scanOverlay.classList.add('opacity-0');
-            }, 500);
-
-            // Retrait des anciens filtres
-            img.className = "w-full h-full object-cover transition duration-500 rounded-xl shadow-2xl";
-
-            // Ajout du nouveau filtre
-            if (filterType === 'aerogommage') img.classList.add('filter-aérogommage');
-            if (filterType === 'bordeaux') img.classList.add('filter-patine-bordeaux');
-            if (filterType === 'bleu') img.classList.add('filter-bleu-canard');
-            if (filterType === 'vert') img.classList.add('filter-vert-sauge');
-            if (filterType === 'beige') img.classList.add('filter-beige-lin');
-            if (filterType === 'noir') img.classList.add('filter-noir-mat');
-
-            currentFilterName = filterName;
-            nameSpan.textContent = filterName;
-            showToast("Simulation mise à jour : " + filterName);
-        }
-
-        // Envoi du projet par mail avec les détails choisis
-        function envoyerSimulationMail() {
-            const promptText = document.getElementById('user-prompt').value || "Aucune description spécifique fournie.";
-            const sujet = encodeURIComponent("Demande de devis & Simulation meuble - La feuille d'acanthe");
-            const corps = encodeURIComponent(
-                "Bonjour,\n\nJe souhaite vous confier un projet de rénovation.\n\n" +
-                "Finitions simulées : " + currentFilterName + "\n" +
-                "Mes envies / description : " + promptText + "\n\n" +
-                "J'ai hâte de discuter de ce projet avec vous.\n\nCordialement,"
-            );
-
-            window.location.href = `mailto:contact.lafeuilledacanthe@gmail.com?subject=${sujet}&body=${corps}`;
-        }
-    </script>
 </body>
 </html>
