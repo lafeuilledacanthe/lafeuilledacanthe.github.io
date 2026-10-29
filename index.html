@@ -2,208 +2,270 @@
 <!DOCTYPE html>
 <!-- Ouvre la balise HTML principale et définit la langue du site en français -->
 <html lang="fr">
-<!-- Début de l'en-tête du document (contient les réglages, les balises pour Google et les styles) -->
+<!-- Début de l'en-tête du document (réglages, référencement SEO et styles) -->
 <head>
-    <!-- Définit l'encodage des caractères en UTF-8 pour gérer correctement les accents -->
+    <!-- Encodage des caractères UTF-8 pour les accents français -->
     <meta charset="UTF-8">
-    <!-- Adapte l'affichage du site à la largeur de l'écran (smartphones et tablettes) -->
+    <!-- Adaptation à tous les écrans (smartphones, tablettes, ordinateurs) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- TITRE OFFICIEL DU SITE (Ce qui s'affiche dans l'onglet et que Google lit en priorité) -->
-    <title>La feuille d'acanthe</title>
-    
-    <!-- DESCRIPTION POUR GOOGLE (Le petit texte explicatif qui apparaîtra sous votre lien dans les résultats de recherche) -->
-    <meta name="description" content="Découvrez La feuille d'acanthe, votre site officiel. Plongez dans notre univers élégant, nos créations et nos services.">
-    
-    <!-- MOTS-CLÉS POUR LES MOTEURS DE RECHERCHE -->
-    <meta name="keywords" content="la feuille d'acanthe, design, univers, site officiel">
+    <!-- TITRE ET BALISES DE RÉFÉRENCEMENT (SEO GOOGLE) -->
+    <title>La feuille d'acanthe — Rénovation, Aérogommage & Patine sur meubles</title>
+    <meta name="description" content="Atelier artisanal spécialisé dans la rénovation de meubles, l'aérogommage, la patine sur-mesure et les stages d'initiation. Redonnez vie à vos pièces d'exception.">
+    <meta name="keywords" content="la feuille d'acanthe, rénovation meuble, aérogommage, patine meuble, stage rénovation, décapage bois">
 
-    <!-- Début de la zone de style CSS (pour personnaliser l'apparence visuelle du site) -->
+    <!-- STYLE CSS PERSONNALISÉ (Chic & Haut de gamme) -->
     <style>
-        /* SÉLECTIONNEUR DU CORPS DE LA PAGE (L'arrière-plan global et les règles de base) */
+        /* CONFIGURATION GLOBALE */
         body {
-            /* Définit la police de caractère principale (style élégant avec empattements) */
-            font-family: 'Playfair Display', 'Georgia', serif;
-            /* Supprime les marges extérieures par défaut créées par le navigateur */
+            font-family: 'Playfair Display', 'Georgia', serif; /* Police chic à empattements */
             margin: 0;
-            /* Supprime les espaces intérieurs par défaut créés par le navigateur */
             padding: 0;
-            /* Définit la couleur de fond de tout le site (beige teinte bois) */
-            background-color: #F4EBE1;
-            /* Définit la couleur par défaut de tous les textes (noir) */
-            color: #1A1A1A;
-            /* Aligne tous les textes et contenus au centre par défaut */
-            text-align: center;
-            /* Active le mode Flexbox pour organiser la mise en page verticale */
+            background-color: #F4EBE1; /* Fond Beige teinte bois */
+            color: #1A1A1A; /* Couleur du texte Noir charbon */
+            line-height: 1.6;
+        }
+
+        /* BANDEAU DE NAVIGATION (En-tête fixe) */
+        nav {
+            background-color: #581822; /* Fond Bordeaux */
+            color: #F4EBE1; /* Texte Beige */
+            padding: 20px 40px;
             display: flex;
-            /* Aligne les éléments du haut vers le bas (en colonne) */
-            flex-direction: column;
-            /* Assure que la page prend au minimum toute la hauteur de l'écran visible */
-            min-height: 100vh;
-            /* Distribue l'espace pour pousser le pied de page tout en bas */
             justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1A1A1A;
         }
-
-        /* SÉLECTIONNEUR DU BLOC D'EN-TÊTE (Bandeau du haut) */
-        header {
-            /* Applique la couleur de fond bordeaux profond */
-            background-color: #581822;
-            /* Définit la couleur du texte à l'intérieur du bandeau (beige) */
-            color: #F4EBE1;
-            /* Ajoute de l'espace intérieur (80px en haut/bas, 20px à gauche/droite) */
-            padding: 80px 20px;
-            /* Ajoute une bordure noire fine au bas du bandeau pour séparer du reste */
-            border-bottom: 2px solid #1A1A1A;
-            /* Ajoute une ombre légère sous le bandeau pour créer un effet de relief */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        /* SÉLECTIONNEUR DU TITRE PRINCIPAL (H1) */
-        h1 {
-            /* Fixe la taille du texte du grand titre */
-            font-size: 3.2em;
-            /* Annule la marge extérieure par défaut du titre */
-            margin: 0;
-            /* Ajuste l'épaisseur de la police pour qu'elle soit plus fine et chic */
-            font-weight: 400;
-            /* Écarte légèrement les lettres les unes des autres (effet haut de gamme) */
+        .logo {
+            font-size: 1.4em;
+            text-transform: uppercase;
             letter-spacing: 2px;
-            /* Transforme automatiquement le texte en MAJUSCULES */
-            text-transform: uppercase;
+            font-weight: bold;
         }
-
-        /* SÉLECTIONNEUR DU SOUS-TITRE */
-        p.subtitle {
-            /* Met le texte du sous-titre en italique */
-            font-style: italic;
-            /* Définit la taille du texte du sous-titre */
-            font-size: 1.1em;
-            /* Rendant le texte légèrement plus doux (85% d'opacité) */
-            opacity: 0.85;
-            /* Décale le sous-titre de 15px vers le bas sous le titre */
-            margin-top: 15px;
-            /* Écarte légèrement les lettres du sous-titre */
-            letter-spacing: 1px;
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
         }
-
-        /* SÉLECTIONNEUR DU CONTENU PRINCIPAL */
-        main {
-            /* Marge intérieure de la zone de contenu (60px haut/bas, 20px gauche/droite) */
-            padding: 60px 20px;
-            /* Limite la largeur maximale du contenu pour éviter des lignes trop longues */
-            max-width: 700px;
-            /* Centre automatiquement le bloc de contenu au milieu de la page */
-            margin: auto;
-        }
-
-        /* SÉLECTIONNEUR DES TITRES DE SECTION (H2) */
-        h2 {
-            /* Colore les sous-titres en bordeaux */
-            color: #581822;
-            /* Définit une épaisseur de texte fine */
-            font-weight: 400;
-            /* Fixe la taille du texte du sous-titre h2 */
-            font-size: 2em;
-            /* Écarte légèrement les lettres pour conserver le style chic */
-            letter-spacing: 1px;
-            /* Ajoute une marge de 20px sous le titre h2 avant le paragraphe */
-            margin-bottom: 20px;
-        }
-
-        /* SÉLECTIONNEUR DES PARAGRAPHES DE TEXTE */
-        p {
-            /* Augmente l'espace entre les lignes de texte pour faciliter la lecture */
-            line-height: 1.8;
-            /* Fixe la taille du texte des paragraphes */
-            font-size: 1.1em;
-            /* Applique un gris très foncé presque noir pour une lecture confortable */
-            color: #333333;
-        }
-
-        /* SÉLECTIONNEUR DU BOUTON D'ACTION */
-        .btn {
-            /* Permet de donner de la taille et des marges au bouton tout en restant aligné */
-            display: inline-block;
-            /* Décale le bouton de 30px vers le bas sous le texte */
-            margin-top: 30px;
-            /* Espace intérieur du bouton (14px haut/bas, 32px gauche/droite) */
-            padding: 14px 32px;
-            /* Rend le fond du bouton transparent (style minimaliste) */
-            background-color: transparent;
-            /* Définit la couleur du texte du bouton en bordeaux */
-            color: #581822;
-            /* Dessine le contour fin du bouton en bordeaux */
-            border: 2px solid #581822;
-            /* Supprime le soulignement par défaut des liens internet */
+        .nav-links a {
+            color: #F4EBE1;
             text-decoration: none;
-            /* Met le texte du bouton en demi-gras */
-            font-weight: 600;
-            /* Écarte les lettres du bouton */
-            letter-spacing: 1.5px;
-            /* Met le texte du bouton en MAJUSCULES */
-            text-transform: uppercase;
-            /* Ajuste la taille du texte du bouton */
             font-size: 0.9em;
-            /* Rend le changement de couleur fluide lors du passage de la souris */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* SECTION HERO (Bandeau d'accueil) */
+        .hero {
+            background-color: #581822;
+            color: #F4EBE1;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 2px solid #1A1A1A;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin: 0 0 15px 0;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* BOUTONS CHIC */
+        .btn-chic {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: transparent;
+            color: #F4EBE1;
+            border: 2px solid #F4EBE1;
+            text-decoration: none;
+            font-size: 0.85em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: all 0.4s ease;
         }
+        .btn-chic:hover {
+            background-color: #F4EBE1;
+            color: #581822;
+        }
 
-        /* COMPORTEMENT DU BOUTON AU PASSAGE DE LA SOURIS (HOVER) */
-        .btn:hover {
-            /* Remplit le fond du bouton en bordeaux lors du survol */
+        .btn-bordeaux {
+            color: #581822;
+            border: 2px solid #581822;
+        }
+        .btn-bordeaux:hover {
             background-color: #581822;
-            /* Change la couleur du texte en beige lors du survol */
             color: #F4EBE1;
         }
 
-        /* SÉLECTIONNEUR DU PIED DE PAGE */
-        footer {
-            /* Ajoute de l'espace à l'intérieur du pied de page */
-            padding: 20px;
-            /* Réduit la taille du texte pour les mentions de bas de page */
-            font-size: 0.85em;
-            /* Applique une couleur grise discrète au texte */
-            color: #666666;
-            /* Écarte légèrement les lettres du bas de page */
-            letter-spacing: 1px;
-            /* Trace une ligne fine au-dessus du pied de page pour le séparer */
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        /* RÈGLE COMMUNE DES SECTIONS */
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
         }
-    <!-- Fin de la zone de style CSS -->
+        section h2 {
+            font-size: 2.2em;
+            color: #581822;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* SECTION 1 : NOS PRESTATIONS (3 BLOCS) */
+        .grid-services {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card-service {
+            flex: 1;
+            min-width: 260px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .card-service h3 {
+            color: #581822;
+            font-size: 1.3em;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .card-service p {
+            font-size: 0.95em;
+            color: #333;
+        }
+
+        /* SECTION 2 : TRANSFORMATION (AVANT / APRÈS) */
+        .before-after-box {
+            background-color: #1A1A1A;
+            color: #F4EBE1;
+            padding: 50px 30px;
+            margin-top: 40px;
+        }
+        .before-after-box h3 {
+            color: #F4EBE1;
+            font-size: 1.6em;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        /* SECTION 3 : STAGES DE RÉNOVATION */
+        .stage-section {
+            background-color: #581822;
+            color: #F4EBE1;
+            padding: 60px 30px;
+            margin: 60px 0;
+            border: 1px solid #1A1A1A;
+        }
+        .stage-section h2 {
+            color: #F4EBE1;
+        }
+
+        /* PIED DE PAGE (FOOTER) */
+        footer {
+            background-color: #1A1A1A;
+            color: #F4EBE1;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+        footer a {
+            color: #F4EBE1;
+            text-decoration: underline;
+        }
     </style>
-<!-- Fin de l'en-tête du document -->
 </head>
-<!-- Début du corps de la page (le contenu visible à l'écran) -->
 <body>
 
-    <!-- Bloc d'en-tête en haut de page -->
-    <header>
-        <!-- Titre principal du site -->
-        <h1>La feuille d'acanthe</h1>
-        <!-- Sous-titre ou devise -->
-        <p class="subtitle">L'élégance à l'état pur</p>
-    <!-- Fin du bloc d'en-tête -->
+    <!-- BARRE DE NAVIGATION -->
+    <nav>
+        <div class="logo">La feuille d'acanthe</div>
+        <ul class="nav-links">
+            <li><a href="#savoir-faire">Savoir-faire</a></li>
+            <li><a href="#stages">Stages</a></li>
+            <li><a href="#boutique">Boutique</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- BANDEAU D'ACCUEIL (HERO) -->
+    <header class="hero">
+        <h1>L'art de sublimer vos meubles</h1>
+        <p>Aérogommage, patines artisanales & rénovation sur-mesure</p>
+        <a href="#contact" class="btn-chic">Demander un devis sur photo</a>
     </header>
 
-    <!-- Bloc de contenu principal de la page -->
-    <main>
-        <!-- Titre de la section de présentation -->
-        <h2>Notre univers</h2>
-        <!-- Paragraphe explicatif de présentation -->
-        <p>Le site est actuellement en cours de création. Nous préparons un écrin à la hauteur de nos ambitions. Revenez très vite pour découvrir notre univers.</p>
-        <!-- Bouton cliquable qui ouvre directement un e-mail vers votre adresse -->
-        <a href="mailto:contact.lafeuille@gmail.com" class="btn">Entrer en contact</a>
-    <!-- Fin du bloc de contenu principal -->
-    </main>
+    <!-- SECTION 1 : CŒUR DE MÉTIER -->
+    <section id="savoir-faire">
+        <h2>Notre Savoir-Faire</h2>
+        <div class="grid-services">
+            <!-- BLOC 1 : AÉROGOMMAGE -->
+            <div class="card-service">
+                <h3>Aérogommage</h3>
+                <p>Décapage écologique à basse pression pour débarrasser le bois des anciens vernis et peintures tout en préservant sa matière brute et ses détails.</p>
+            </div>
+            <!-- BLOC 2 : PATINE ARTISANALE -->
+            <div class="card-service">
+                <h3>Patine Artisanale</h3>
+                <p>Application de finitions personnalisées, d'effets vieillis ou contemporains pour donner du caractère et une élégance unique à votre mobilier.</p>
+            </div>
+            <!-- BLOC 3 : RÉNOVATION COMPLÈTE -->
+            <div class="card-service">
+                <h3>Rénovation</h3>
+                <p>Restauration, traitement, protection et modernisation globale de vos meubles de famille ou trouvailles de chine.</p>
+            </div>
+        </div>
 
-    <!-- Pied de page tout en bas -->
-    <footer>
-        <!-- Symbole copyright suivi du texte de droits réservés -->
-        &copy; 2026 La feuille d'acanthe — Tous droits réservés.
-    <!-- Fin du pied de page -->
+        <!-- FOCUS AVANT / APRÈS -->
+        <div class="before-after-box">
+            <h3>La Magie de la Transformation</h3>
+            <p>Du meuble sombre ou abîmé à la pièce d'exception remise à nu : découvrez nos réalisations.</p>
+            <br>
+            <a href="mailto:contact.lafeuille@gmail.com" class="btn-chic">Envoyer vos photos pour étude</a>
+        </div>
+    </section>
+
+    <!-- SECTION 2 : STAGES DE RÉNOVATION -->
+    <div class="stage-section" id="stages">
+        <h2>Stages & Ateliers</h2>
+        <p>Envie d'apprendre à rénover vous-même vos meubles ? Rejoignez nos ateliers pratiques pour maîtriser les gestes de la patine et de la préparation du bois dans une ambiance conviviale.</p>
+        <br>
+        <a href="mailto:contact.lafeuille@gmail.com?subject=Demande d'informations - Stages" class="btn-chic">Découvrir le programme</a>
+    </div>
+
+    <!-- SECTION 3 : BOUTIQUE (BIENTÔT DISPONIBLE) -->
+    <section id="boutique">
+        <h2>Créations & Boutique</h2>
+        <p>Prochainement, retrouvez ici notre sélection de meubles chiner, rénovés et patinés par nos soins, prêts à adopter une nouvelle vie dans votre intérieur.</p>
+        <br>
+        <a href="mailto:contact.lafeuille@gmail.com" class="btn-chic btn-bordeaux">Être informé des nouveautés</a>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer id="contact">
+        <p><strong>La feuille d'acanthe</strong> — Atelier de rénovation & d'aérogommage</p>
+        <p>Contact : <a href="mailto:contact.lafeuille@gmail.com">contact.lafeuille@gmail.com</a></p>
+        <p style="margin-top: 20px; opacity: 0.6;">&copy; 2026 La feuille d'acanthe. Tous droits réservés.</p>
     </footer>
 
-<!-- Fin du corps de la page -->
 </body>
-<!-- Fin complète du fichier HTML -->
 </html>
