@@ -6,6 +6,14 @@
     <title>La feuille d'acanthe | Rénovation de meubles anciens, Aérogommage & Patine </title>
     <!-- Tailwind CSS pour un design ultra-propre -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SDK EmailJS pour envoyer le formulaire directement depuis le site -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Remplacez 'VOTRE_PUBLIC_KEY' par votre clé publique EmailJS (gratuite)
+            emailjs.init("VOTRE_PUBLIC_KEY");
+        })();
+    </script>
     <script>
         tailwind.config = {
             theme: {
@@ -100,7 +108,6 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#F5F2EB]">
-        <!-- Effet de lumière chaleureux -->
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-or/10 rounded-full blur-3xl pointer-events-none"></div>
         
         <div class="max-w-5xl mx-auto px-6 text-center relative z-10 py-20">
@@ -124,7 +131,7 @@
         </div>
     </section>
 
-    <!-- SECTION L'ATELIER (Avec images d'immersion) -->
+    <!-- SECTION L'ATELIER -->
     <section id="atelier" class="py-24 bg-[#FAF8F5] border-y border-[#2C2522]/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -133,7 +140,6 @@
                 <p class="text-[#2C2522]/80 text-sm font-light">Un espace dédié à la restauration, où vos envies deviennent réalité.</p>
             </div>
 
-            <!-- Grille de 3 images d'atelier -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div class="relative group overflow-hidden rounded-2xl shadow-md border border-[#2C2522]/10">
                     <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Outils et travail du bois" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500">
@@ -167,7 +173,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Carte 1 -->
                 <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-wind"></i>
@@ -182,7 +187,6 @@
                     </ul>
                 </div>
 
-                <!-- Carte 2 -->
                 <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-paintbrush"></i>
@@ -197,7 +201,6 @@
                     </ul>
                 </div>
 
-                <!-- Carte 3 -->
                 <div class="bg-[#FAF8F5] border border-[#2C2522]/10 rounded-2xl p-8 hover:border-bordeaux/40 transition group shadow-sm">
                     <div class="w-12 h-12 rounded-xl bg-bordeaux/10 border border-bordeaux/30 flex items-center justify-center text-bordeaux text-xl mb-6 group-hover:scale-110 transition">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -253,134 +256,4 @@
             
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <span class="text-bordeaux text-xs uppercase tracking-[0.3em] mb-2 block font-semibold">Étude Personnalisée</span>
-                <h2 class="font-serif text-3xl sm:text-5xl text-[#2C2522] mb-4">Déposer mon projet</h2>
-                <p class="text-[#2C2522]/80 text-sm sm:text-base font-light">
-                    Décrivez-nous votre demande et importez la photo de votre meuble. Nous vous recontacterons avec une étude personnalisée et un visuel de votre meuble tel que vous le souhaitez.
-                </p>
-            </div>
-
-            <!-- Formulaire configuré avec FormSubmit (100% gratuit avec fichiers) -->
-            <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-6 sm:p-10 shadow-xl">
-                <form action="https://formsubmit.co/contact.lafeuilledacanthe@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
-                    
-                    <!-- Redirection pour revenir sur le site après l'envoi -->
-                    <input type="hidden" name="_next" value="https://lafeuilledacanthe.github.io">
-                    <!-- Désactive le captcha pour éviter les frictions -->
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="name">Votre nom :</label>
-                            <input type="text" id="name" name="Nom" placeholder="Ex: Marie Dupont" required class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="email">Votre e-mail :</label>
-                            <input type="email" id="email" name="Email" placeholder="Ex: marie@exemple.fr" required class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="description">Décrivez votre envie (couleur, effet, style recherché) :</label>
-                        <textarea id="description" name="Description du projet" rows="4" placeholder="Ex: Je souhaite conserver le plateau en bois brut aérogommé et peindre le corps en vert sauge avec une patine dorée sur les moulures..." class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none resize-none" required></textarea>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="photo">Importer la photo de votre meuble :</label>
-                        <label for="photo" class="cursor-pointer border-2 border-dashed border-[#2C2522]/20 hover:border-bordeaux rounded-2xl p-6 flex items-center justify-center gap-3 transition bg-[#F5F2EB]/50 group">
-                            <i class="fa-solid fa-cloud-arrow-up text-bordeaux text-xl group-hover:scale-110 transition"></i>
-                            <span class="text-xs text-[#2C2522] font-medium">Sélectionner une photo depuis votre appareil</span>
-                            <input id="photo" type="file" name="photo_meuble" accept="image/*" class="hidden" onchange="showToast('Photo sélectionnée avec succès !')">
-                        </label>
-                    </div>
-
-                    <div class="text-center pt-2">
-                        <button type="submit" class="w-full sm:w-auto bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-xl text-xs uppercase tracking-widest font-bold transition shadow-lg inline-flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane text-or"></i> Envoyer ma demande à l'atelier
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT & FOOTER avec texture bois -->
-    <footer id="contact" class="wood-texture text-[#F5F2EB] pt-20 pb-12 border-t border-or/20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="bg-bordeaux border border-or/40 px-3 py-1.5 rounded-xl inline-flex items-center">
-                            <span class="text-white font-serif font-bold text-sm tracking-wide">Feuille d'acanthe</span>
-                        </div>
-                    </div>
-                    <p class="text-[#F5F2EB]/80 text-xs font-light leading-relaxed mb-6">
-                        Atelier artisanal spécialisé dans la rénovation, l'aérogommage et la création de patines sur mobilier d'exception.
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <a href="mailto:contact.lafeuilledacanthe@gmail.com" class="w-10 h-10 rounded-full border border-white/20 hover:border-or flex items-center justify-center transition text-[#F5F2EB] hover:text-or">
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-                        <a href="https://github.com/lafeuilledacanthe" target="_blank" class="w-10 h-10 rounded-full border border-white/20 hover:border-or flex items-center justify-center transition text-[#F5F2EB] hover:text-or">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="font-serif text-white text-base font-semibold mb-4">Contact Direct</h4>
-                    <p class="text-xs text-[#F5F2EB]/90 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-envelope text-or"></i>
-                        <a href="mailto:contact.lafeuilledacanthe@gmail.com" class="hover:text-or transition underline">contact.lafeuilledacanthe@gmail.com</a>
-                    </p>
-                    <p class="text-xs text-[#F5F2EB]/90 mb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-location-dot text-or"></i>
-                        <span>Bretagne, France</span>
-                    </p>
-                    <p class="text-xs text-[#F5F2EB]/90 flex items-center gap-2">
-                        <i class="fa-solid fa-globe text-or"></i>
-                        <span>https://lafeuilledacanthe.github.io</span>
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="font-serif text-white text-base font-semibold mb-4">Newsletter & Actualités</h4>
-                    <p class="text-xs text-[#F5F2EB]/80 mb-4 font-light">Recevez nos conseils de relooking et les dates des prochains stages.</p>
-                    <form onsubmit="event.preventDefault(); showToast('Merci pour votre inscription !');" class="flex gap-2">
-                        <input type="email" placeholder="Votre email..." required class="bg-black/40 border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-or flex-1">
-                        <button type="submit" class="bg-bordeaux hover:bg-bordeaux-light text-white px-5 py-2.5 rounded-xl text-xs uppercase tracking-widest font-medium transition border border-or/30">
-                            OK
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F5F2EB]/70 font-light">
-                <p>&copy; 2026 La feuille d'acanthe. Tous droits réservés.</p>
-                <p class="mt-4 sm:mt-0">Hébergé par <a href="https://lafeuilledacanthe.github.io" class="text-or hover:underline">GitHub Pages</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Script JavaScript -->
-    <script>
-        // Gestion du menu mobile
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Fonction Toast de notification
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            toastMsg.textContent = msg;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 4000);
-        }
-    </script>
-</body>
-</html>
+                <h2 class="font-serif text-3xl
