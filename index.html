@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La feuille d'acanthe | Rénovation de meubles anciens, Aérogommage & Patine </title>
-    <!-- Tailwind CSS pour un design ultra-propre -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- SDK EmailJS pour envoyer le formulaire directement depuis le site -->
+    <!-- SDK EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -45,12 +45,11 @@
     </script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome pour les icônes -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #F5F2EB; color: #2C2522; }
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
-        
         .wood-texture {
             background-image: linear-gradient(rgba(44, 37, 34, 0.85), rgba(44, 37, 34, 0.85)), url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
@@ -60,13 +59,13 @@
 </head>
 <body class="bg-[#F5F2EB] text-[#2C2522] selection:bg-bordeaux selection:text-white">
 
-    <!-- Notification discrète -->
+    <!-- Notification -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-bordeaux border border-or/30 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm">
         <i class="fa-solid fa-circle-check text-or"></i>
         <span id="toast-msg">Action effectuée avec succès</span>
     </div>
 
-    <!-- En-tête / Navigation -->
+    <!-- En-tête -->
     <header class="fixed top-0 left-0 right-0 z-40 wood-texture backdrop-blur-md border-b border-or/20 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
@@ -255,11 +254,11 @@
                 <span class="text-bordeaux text-xs uppercase tracking-[0.3em] mb-2 block font-semibold">Étude Personnalisée</span>
                 <h2 class="font-serif text-3xl sm:text-5xl text-[#2C2522] mb-4">Déposer mon projet</h2>
                 <p class="text-[#2C2522]/80 text-sm sm:text-base font-light">
-                    Décrivez-nous votre demande et importez la photo de votre meuble. Nous vous recontacterons avec une étude personnalisée.
+                    Décrivez-nous votre demande et importez la photo de votre meuble. Tout s'envoie directement depuis le site.
                 </p>
             </div>
 
-            <!-- Formulaire géré par EmailJS -->
+            <!-- Formulaire avec conversion image en texte (contourne les limites de pièces jointes) -->
             <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-6 sm:p-10 shadow-xl">
                 <form id="contact-form" onsubmit="sendEmail(event)" class="space-y-6">
                     
@@ -276,7 +275,7 @@
 
                     <div>
                         <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="description">Décrivez votre envie (couleur, effet, style recherché) :</label>
-                        <textarea id="description" name="message" rows="4" placeholder="Ex: Je souhaite conserver le plateau en bois brut aérogommé..." class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none resize-none" required></textarea>
+                        <textarea id="description" name="message" rows="4" placeholder="Ex: Je souhaite conserver le plateau en bois brut..." class="w-full bg-[#F5F2EB] border border-[#2C2522]/20 rounded-xl p-3 text-xs text-[#2C2522] focus:border-bordeaux focus:outline-none resize-none" required></textarea>
                     </div>
 
                     <div>
@@ -284,8 +283,11 @@
                         <label for="photo" class="cursor-pointer border-2 border-dashed border-[#2C2522]/20 hover:border-bordeaux rounded-2xl p-6 flex items-center justify-center gap-3 transition bg-[#F5F2EB]/50 group">
                             <i class="fa-solid fa-cloud-arrow-up text-bordeaux text-xl group-hover:scale-110 transition"></i>
                             <span id="file-label" class="text-xs text-[#2C2522] font-medium">Sélectionner une photo depuis votre appareil</span>
-                            <input id="photo" type="file" name="my_file" accept="image/*" class="hidden" onchange="updateFileName(this)">
+                            <!-- Champ fichier invisible géré par le script -->
+                            <input id="photo" type="file" accept="image/*" class="hidden" onchange="handleImage(this)">
                         </label>
+                        <!-- Champ caché pour stocker l'image convertie -->
+                        <input type="hidden" id="image_data" name="image_data">
                     </div>
 
                     <div class="text-center pt-2">
@@ -359,17 +361,29 @@
 
     <!-- Script JavaScript -->
     <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-dfn') || document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if(mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
 
-        function updateFileName(input) {
+        // Convertit l'image en texte pour passer sous les radars des limites de fichiers
+        function handleImage(input) {
             const label = document.getElementById('file-label');
             if (input.files && input.files[0]) {
-                label.textContent = "Photo sélectionnée : " + input.files[0].name;
+                const file = input.files[0];
+                label.textContent = "Photo sélectionnée : " + file.name;
                 showToast('Photo sélectionnée avec succès !');
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Stocke l'image sous forme de lien HTML cliquable dans le champ caché
+                    const imgHtml = `<br><br><b>Photo du meuble :</b><br><img src="${e.target.result}" style="max-width:300px; border-radius:8px; margin-top:10px;" alt="Meuble client">`;
+                    document.getElementById('image_data').value = imgHtml;
+                };
+                reader.readAsDataURL(file);
             }
         }
 
@@ -389,10 +403,12 @@
             btn.textContent = "Envoi en cours...";
             btn.disabled = true;
 
+            // Envoi via EmailJS en tant que texte (avec l'image intégrée dedans)
             emailjs.sendForm('service_itvgm1a', 'template_hris3id', document.getElementById('contact-form'))
                 .then(function() {
-                    showToast('Votre message a bien été envoyé !');
+                    showToast('Votre message et votre photo ont bien été envoyés !');
                     document.getElementById('contact-form').reset();
+                    document.getElementById('image_data').value = "";
                     document.getElementById('file-label').textContent = "Sélectionner une photo depuis votre appareil";
                     btn.innerHTML = '<i class="fa-solid fa-paper-plane text-or"></i> Envoyer ma demande à l\'atelier';
                     btn.disabled = false;
