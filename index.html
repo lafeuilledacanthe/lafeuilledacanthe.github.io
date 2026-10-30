@@ -286,15 +286,11 @@
                             
                             <!-- Vidéo 1 -->
                             <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-100 flex items-center justify-center">
-                                <video src="votre-video-1.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
+                                <video src="VID_20261030_055939_787_bsl.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
                             </div>
                             <!-- Vidéo 2 -->
                             <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none flex items-center justify-center">
-                                <video src="votre-video-2.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
-                            </div>
-                            <!-- Vidéo 3 -->
-                            <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none flex items-center justify-center">
-                                <video src="votre-video-3.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
+                                <video src="VID_20261030_060950_698_bsl632088186.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
                             </div>
 
                             <!-- Bouton Précédent -->
@@ -311,7 +307,6 @@
                         <div class="flex items-center justify-center gap-2 mt-4">
                             <button onclick="goToVideo(0)" class="video-dot w-3 h-3 rounded-full bg-bordeaux transition"></button>
                             <button onclick="goToVideo(1)" class="video-dot w-3 h-3 rounded-full bg-[#2C2522]/20 hover:bg-bordeaux/50 transition"></button>
-                            <button onclick="goToVideo(2)" class="video-dot w-3 h-3 rounded-full bg-[#2C2522]/20 hover:bg-bordeaux/50 transition"></button>
                         </div>
                     </div>
                 </div>
@@ -536,7 +531,7 @@
                 } else {
                     slide.classList.remove('opacity-100');
                     slide.classList.add('opacity-0', 'pointer-events-none');
-                    if (video) video.pause(); // Met en pause les vidéos masquées
+                    if (video) video.pause(); // Met en pause la vidéo masquée
                 }
             });
             dots.forEach((dot, index) => {
