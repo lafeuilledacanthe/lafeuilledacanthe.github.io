@@ -251,29 +251,71 @@
     <!-- STAGES & FORMATIONS -->
     <section id="stages" class="py-24 bg-[#EFECE3] border-b border-[#2C2522]/10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Transmission & Passion</span>
-                <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-6">Participez à nos Stages de Relooking</h2>
-                <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                    Vous souhaitez apprendre à rénover votre meuble avec notre accompagnement ? Maîtriser l'art de la patine ou préparer des effets cérusés sur vos propres pièces ? Rejoignez nos sessions de formation pratiques au sein de l'atelier.
-                </p>
-                <ul class="space-y-4 mb-8 text-sm text-[#2C2522]">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                        <span><strong>Jour 1 :</strong> Apprenez l'histoire de votre meuble, démontage des ferrures et bronzes, décapage du meuble.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                        <span><strong>Jour 2 :</strong> Finalisation du décapage et ponçage de finition, techniques anciennes de rebouchage et préparation de vos patines personnalisées par vos soins. Application de la patine.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                        <span><strong>Jour 3 :</strong> Vernissage ou cirage de vos meubles, finitions et remontage des serrures et bronzes.</span>
-                    </li>
-                </ul>
-                <a href="mailto:contact.lafeuilledacanthe@gmail.com?subject=R%C3%A9servation%20de%20stage" class="inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-medium transition border border-or/30 shadow-lg">
-                    <span>Réserver une place en stage</span>
-                </a>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Colonne Gauche : Texte & Infos -->
+                <div class="lg:col-span-7">
+                    <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Transmission & Passion</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-6">Participez à nos Stages de Relooking</h2>
+                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
+                        Vous souhaitez apprendre à rénover votre meuble avec notre accompagnement ? Maîtriser l'art de la patine ou préparer des effets cérusés sur vos propres pièces ? Rejoignez nos sessions de formation pratiques au sein de l'atelier.
+                    </p>
+                    <ul class="space-y-4 mb-8 text-sm text-[#2C2522]">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                            <span><strong>Jour 1 :</strong> Apprenez l'histoire de votre meuble, démontage des ferrures et bronzes, décapage du meuble.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                            <span><strong>Jour 2 :</strong> Finalisation du décapage et ponçage de finition, techniques anciennes de rebouchage et préparation de vos patines personnalisées par vos soins. Application de la patine.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                            <span><strong>Jour 3 :</strong> Vernissage ou cirage de vos meubles, finitions et remontage des serrures et bronzes.</span>
+                        </li>
+                    </ul>
+                    <a href="mailto:contact.lafeuilledacanthe@gmail.com?subject=R%C3%A9servation%20de%20stage" class="inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-medium transition border border-or/30 shadow-lg">
+                        <span>Réserver une place en stage</span>
+                    </a>
+                </div>
+
+                <!-- Colonne Droite : Diaporama de Vidéos -->
+                <div class="lg:col-span-5">
+                    <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-4 shadow-xl relative">
+                        <div class="relative w-full aspect-[9/16] sm:aspect-[4/3] rounded-2xl overflow-hidden bg-black/90">
+                            
+                            <!-- Vidéo 1 -->
+                            <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-100 flex items-center justify-center">
+                                <video src="votre-video-1.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
+                            </div>
+                            <!-- Vidéo 2 -->
+                            <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none flex items-center justify-center">
+                                <video src="votre-video-2.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
+                            </div>
+                            <!-- Vidéo 3 -->
+                            <div class="video-slide absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none flex items-center justify-center">
+                                <video src="votre-video-3.mp4" controls muted playsinline class="w-full h-full object-cover"></video>
+                            </div>
+
+                            <!-- Bouton Précédent -->
+                            <button onclick="prevVideo()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-bordeaux text-white w-10 h-10 rounded-full flex items-center justify-center transition border border-white/20 z-10">
+                                <i class="fa-solid fa-chevron-left text-sm"></i>
+                            </button>
+                            <!-- Bouton Suivant -->
+                            <button onclick="nextVideo()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-bordeaux text-white w-10 h-10 rounded-full flex items-center justify-center transition border border-white/20 z-10">
+                                <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+
+                        <!-- Indicateurs (Points) -->
+                        <div class="flex items-center justify-center gap-2 mt-4">
+                            <button onclick="goToVideo(0)" class="video-dot w-3 h-3 rounded-full bg-bordeaux transition"></button>
+                            <button onclick="goToVideo(1)" class="video-dot w-3 h-3 rounded-full bg-[#2C2522]/20 hover:bg-bordeaux/50 transition"></button>
+                            <button onclick="goToVideo(2)" class="video-dot w-3 h-3 rounded-full bg-[#2C2522]/20 hover:bg-bordeaux/50 transition"></button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -478,6 +520,49 @@
             setTimeout(() => {
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 4000);
+        }
+
+        // Script du Diaporama Vidéo
+        let currentVideoIndex = 0;
+        const slides = document.querySelectorAll('.video-slide');
+        const dots = document.querySelectorAll('.video-dot');
+
+        function updateVideoSlide() {
+            slides.forEach((slide, index) => {
+                const video = slide.querySelector('video');
+                if (index === currentVideoIndex) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0', 'pointer-events-none');
+                    if (video) video.pause(); // Met en pause les vidéos masquées
+                }
+            });
+            dots.forEach((dot, index) => {
+                if (index === currentVideoIndex) {
+                    dot.classList.remove('bg-[#2C2522]/20');
+                    dot.classList.add('bg-bordeaux');
+                } else {
+                    dot.classList.remove('bg-bordeaux');
+                    dot.classList.add('bg-[#2C2522]/20');
+                }
+            });
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % slides.length;
+            updateVideoSlide();
+        }
+
+        function prevVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + slides.length) % slides.length;
+            updateVideoSlide();
+        }
+
+        function goToVideo(index) {
+            currentVideoIndex = index;
+            updateVideoSlide();
         }
     </script>
 </body>
