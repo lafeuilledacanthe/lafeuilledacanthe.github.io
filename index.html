@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La feuille d'acanthe | Rénovation de meubles anciens, Aérogommage & Patine </title>
+    <title>La feuille d'acanthe | Rénovation de meubles anciens, Aérogommage & Patine</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -81,17 +81,18 @@
                 <a href="#projet" class="hidden sm:inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-5 py-2.5 rounded-full text-xs font-medium uppercase tracking-widest border border-or/30 transition shadow-md">
                     <span>Relooker mon meuble</span>
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden text-white text-xl p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-white text-xl p-2 focus:outline-none">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-[#2C2522] border-b border-or/20 px-6 py-6 space-y-4">
-            <a href="#atelier" class="block text-white hover:text-or font-medium">L'Atelier</a>
-            <a href="#savoir-faire" class="block text-white hover:text-or font-medium">Savoir-Faire</a>
-            <a href="#stages" class="block text-white hover:text-or font-medium">Stages & Formations</a>
-            <a href="#projet" class="block text-or font-semibold">Déposer mon projet</a>
-            <a href="#contact" class="block text-white hover:text-or font-medium">Contact</a>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#2C2522] border-b border-or/20 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#atelier" class="mobile-link block text-white hover:text-or font-medium">L'Atelier</a>
+            <a href="#savoir-faire" class="mobile-link block text-white hover:text-or font-medium">Savoir-Faire</a>
+            <a href="#stages" class="mobile-link block text-white hover:text-or font-medium">Stages & Formations</a>
+            <a href="#projet" class="mobile-link block text-or font-semibold">Déposer mon projet</a>
+            <a href="#contact" class="mobile-link block text-white hover:text-or font-medium">Contact</a>
         </div>
     </header>
 
@@ -107,7 +108,7 @@
                 Sublimer l'histoire <br>de vos <span class="italic text-bordeaux font-normal">meubles anciens</span>
             </h1>
             <p class="text-[#2C2522]/80 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                Spécialistes en aérogommage des meubles anciens, patines sur mesure et finitions haut de gamme au cœur de la Bretagne près de Saint Brieuc.
+                Spécialistes en aérogommage des meubles anciens, patines sur mesure et finitions haut de gamme au cœur de la Bretagne près de Saint-Brieuc.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#projet" class="w-full sm:w-auto bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-sm uppercase tracking-widest font-medium transition border border-or/40 shadow-xl flex items-center justify-center gap-3">
@@ -156,9 +157,9 @@
     <section id="savoir-faire" class="py-24 bg-[#EFECE3] border-b border-[#2C2522]/10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold"> Expertise et savoir faire</span>
+                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Expertise et savoir-faire</span>
                 <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-4">Nos Prestations</h2>
-                <p class="text-[#2C2522]/80 text-sm font-light">Chaque meuble a son histoire, nous mettons tout en oeuvre pour les sauvegarder et les sublimer.</p>
+                <p class="text-[#2C2522]/80 text-sm font-light">Chaque meuble a son histoire, nous mettons tout en œuvre pour les sauvegarder et les sublimer.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -196,7 +197,7 @@
                     </div>
                     <h3 class="font-serif text-xl text-[#2C2522] mb-3 font-semibold">Stages & Vente de Produits</h3>
                     <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Apprenez les secrets de la revalorisation de meubles lors de nos ateliers pratiques en petit comité, venez avec votre meuble et rénovons le ensemble.
+                        Apprenez les secrets de la revalorisation de meubles lors de nos ateliers pratiques en petit comité, venez avec votre meuble et rénovons-le ensemble.
                     </p>
                     <ul class="text-xs text-[#2C2522]/80 space-y-2 border-t border-[#2C2522]/10 pt-4">
                         <li><i class="fa-solid fa-check text-bordeaux mr-2"></i> Ateliers découverte & perfectionnement</li>
@@ -210,36 +211,34 @@
     <!-- STAGES & FORMATIONS -->
     <section id="stages" class="py-24 bg-[#EFECE3] border-b border-[#2C2522]/10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Transmission & Passion</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-6">Participez à nos Stages de Relooking</h2>
-                    <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
-                        Vous souhaitez apprendre à rénover votre meuble avec notre accompagnement? Maîtriser l'art de la patine ou préparer des effets cérusés sur vos propres pièces ? Rejoignez nos sessions de formation pratiques au sein de l'atelier.
-                    </p>
-                    <ul class="space-y-4 mb-8 text-sm text-[#2C2522]">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                            <span><strong>Jour 1 :</strong> Apprenez l'histoire de votre meuble, démontage des ferrures et bronzes, décapage du meuble.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                            <span><strong>Jour 2 :</strong> Finalisation du décapage et ponçage de finition, techniques anciennes de rebouchage et préparation de vos patines personnalisée par vos soins. Application de la patine. </span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
-                            <span><strong>Jour 3 :</strong> Vernissage ou cirage de vos meubles, finitions et remontage des serrures et bronzes. </span>
-                        </li>
-                    </ul>
-                    <a href="mailto:contact.lafeuilledacanthe@gmail.com?subject=R%C3%A9servation%20de%20stage" class="inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-medium transition border border-or/30 shadow-lg">
-                        <span>Réserver une place en stage</span>
-                    </a>
-                </div>
+            <div class="max-w-3xl">
+                <span class="text-bordeaux text-xs uppercase tracking-[0.2em] mb-2 block font-semibold">Transmission & Passion</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-[#2C2522] mb-6">Participez à nos Stages de Relooking</h2>
+                <p class="text-[#2C2522]/80 text-sm font-light leading-relaxed mb-6">
+                    Vous souhaitez apprendre à rénover votre meuble avec notre accompagnement ? Maîtriser l'art de la patine ou préparer des effets cérusés sur vos propres pièces ? Rejoignez nos sessions de formation pratiques au sein de l'atelier.
+                </p>
+                <ul class="space-y-4 mb-8 text-sm text-[#2C2522]">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                        <span><strong>Jour 1 :</strong> Apprenez l'histoire de votre meuble, démontage des ferrures et bronzes, décapage du meuble.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                        <span><strong>Jour 2 :</strong> Finalisation du décapage et ponçage de finition, techniques anciennes de rebouchage et préparation de vos patines personnalisées par vos soins. Application de la patine.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-bordeaux mt-1"></i>
+                        <span><strong>Jour 3 :</strong> Vernissage ou cirage de vos meubles, finitions et remontage des serrures et bronzes.</span>
+                    </li>
+                </ul>
+                <a href="mailto:contact.lafeuilledacanthe@gmail.com?subject=R%C3%A9servation%20de%20stage" class="inline-flex items-center gap-2 bg-bordeaux hover:bg-bordeaux-light text-white px-8 py-4 rounded-full text-xs uppercase tracking-widest font-medium transition border border-or/30 shadow-lg">
+                    <span>Réserver une place en stage</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION DÉPOSER MON PROJET (Google Form Intégré) -->
+    <!-- SECTION DÉPOSER MON PROJET -->
     <section id="projet" class="py-24 bg-[#F5F2EB] relative">
         <div class="max-w-4xl mx-auto px-6">
             
@@ -251,7 +250,6 @@
                 </p>
             </div>
 
-            <!-- Conteneur intégrant le Google Form -->
             <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-4 sm:p-8 shadow-xl overflow-hidden">
                 <div class="bg-bordeaux/5 border border-bordeaux/20 rounded-2xl p-4 mb-6 flex items-center gap-3">
                     <i class="fa-solid fa-circle-info text-bordeaux text-lg"></i>
@@ -260,7 +258,6 @@
                     </p>
                 </div>
 
-                <!-- Iframe Google Form connectée à votre formulaire -->
                 <div class="w-full flex justify-center">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaFpy7cPl9Jaw-biHtAlw33Xynd5rY3MslVOPhq6jTc6gqDA/viewform?embedded=true" 
                             width="100%" 
@@ -308,7 +305,7 @@
                     </p>
                     <p class="text-xs text-[#F5F2EB]/90 mb-3 flex items-center gap-2">
                         <i class="fa-solid fa-location-dot text-or"></i>
-                        <span>11 imp de Carsugat, 22120 Hillion, proche Saint Brieuc, Bretagne, France</span>
+                        <span>11 imp de Carsugat, 22120 Hillion, proche Saint-Brieuc, Bretagne, France</span>
                     </p>
                     <p class="text-xs text-[#F5F2EB]/90 flex items-center gap-2">
                         <i class="fa-solid fa-globe text-or"></i>
@@ -339,8 +336,18 @@
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // Ouvrir / Fermer le menu mobile au clic sur le bouton hamburger
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fermer automatiquement le menu mobile lorsqu'on clique sur un lien de navigation
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
 
         function showToast(msg) {
