@@ -259,10 +259,15 @@
                 </p>
             </div>
 
-            <!-- Formulaire de dépôt de projet configuré avec Formspree -->
+            <!-- Formulaire configuré avec FormSubmit (100% gratuit avec fichiers) -->
             <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-6 sm:p-10 shadow-xl">
-                <form action="https://formspree.io/f/mdeedqpw" method="POST" enctype="multipart/form-data" class="space-y-6">
+                <form action="https://formsubmit.co/contact.lafeuilledacanthe@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-6">
                     
+                    <!-- Redirection pour revenir sur le site après l'envoi -->
+                    <input type="hidden" name="_next" value="https://lafeuilledacanthe.github.io">
+                    <!-- Désactive le captcha pour éviter les frictions -->
+                    <input type="hidden" name="_captcha" value="false">
+
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-xs uppercase tracking-widest text-bordeaux font-semibold mb-2" for="name">Votre nom :</label>
@@ -284,7 +289,7 @@
                         <label for="photo" class="cursor-pointer border-2 border-dashed border-[#2C2522]/20 hover:border-bordeaux rounded-2xl p-6 flex items-center justify-center gap-3 transition bg-[#F5F2EB]/50 group">
                             <i class="fa-solid fa-cloud-arrow-up text-bordeaux text-xl group-hover:scale-110 transition"></i>
                             <span class="text-xs text-[#2C2522] font-medium">Sélectionner une photo depuis votre appareil</span>
-                            <input id="photo" type="file" name="upload" accept="image/*" class="hidden" onchange="showToast('Photo sélectionnée avec succès !')">
+                            <input id="photo" type="file" name="photo_meuble" accept="image/*" class="hidden" onchange="showToast('Photo sélectionnée avec succès !')">
                         </label>
                     </div>
 
