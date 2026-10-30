@@ -10,8 +10,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Remplacez 'VOTRE_PUBLIC_KEY' par votre clé publique EmailJS (gratuite)
-            emailjs.init("VOTRE_PUBLIC_KEY");
+            emailjs.init("_lDENxXnmU25lueDR");
         })();
     </script>
     <script>
@@ -25,7 +24,7 @@
                             light: '#722435',
                         },
                         bois: {
-                            beige: '#F5F2EB', // Fond beige chaleureux
+                            beige: '#F5F2EB',
                             light: '#FAF8F5',
                             warm: '#E6E1D6',
                             card: '#FFFFFF',
@@ -52,7 +51,6 @@
         body { font-family: 'Inter', sans-serif; background-color: #F5F2EB; color: #2C2522; }
         h1, h2, h3, .font-serif { font-family: 'Playfair Display', Georgia, serif; }
         
-        /* Texture bois pour le header et le footer */
         .wood-texture {
             background-image: linear-gradient(rgba(44, 37, 34, 0.85), rgba(44, 37, 34, 0.85)), url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
@@ -68,7 +66,7 @@
         <span id="toast-msg">Action effectuée avec succès</span>
     </div>
 
-    <!-- En-tête / Navigation avec texture bois -->
+    <!-- En-tête / Navigation -->
     <header class="fixed top-0 left-0 right-0 z-40 wood-texture backdrop-blur-md border-b border-or/20 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
@@ -96,7 +94,6 @@
                 </button>
             </div>
         </div>
-        <!-- Menu mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-[#2C2522] border-b border-or/20 px-6 py-6 space-y-4">
             <a href="#atelier" class="block text-white hover:text-or font-medium">L'Atelier</a>
             <a href="#savoir-faire" class="block text-white hover:text-or font-medium">Savoir-Faire</a>
@@ -262,7 +259,7 @@
                 </p>
             </div>
 
-            <!-- Formulaire géré par EmailJS (reste sur le site) -->
+            <!-- Formulaire géré par EmailJS -->
             <div class="bg-[#FAF8F5] border border-[#2C2522]/15 rounded-3xl p-6 sm:p-10 shadow-xl">
                 <form id="contact-form" onsubmit="sendEmail(event)" class="space-y-6">
                     
@@ -362,14 +359,12 @@
 
     <!-- Script JavaScript -->
     <script>
-        // Gestion du menu mobile
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Afficher le nom du fichier sélectionné
         function updateFileName(input) {
             const label = document.getElementById('file-label');
             if (input.files && input.files[0]) {
@@ -378,7 +373,6 @@
             }
         }
 
-        // Fonction Toast de notification
         function showToast(msg) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
@@ -389,18 +383,15 @@
             }, 4000);
         }
 
-        // Envoi du formulaire via EmailJS (le visiteur reste sur place)
         function sendEmail(event) {
             event.preventDefault();
             const btn = document.getElementById('submit-btn');
             btn.textContent = "Envoi en cours...";
             btn.disabled = true;
 
-            // Paramètres EmailJS (À configurer en 2 minutes sur emailjs.com)
-            // Service ID, Template ID, et le formulaire HTML
-            emailjs.sendForm('VOTRE_SERVICE_ID', 'VOTRE_TEMPLATE_ID', document.getElementById('contact-form'))
+            emailjs.sendForm('service_itvgm1a', 'template_hris3id', document.getElementById('contact-form'))
                 .then(function() {
-                    showToast('Votre message et votre photo ont bien été envoyés !');
+                    showToast('Votre message a bien été envoyé !');
                     document.getElementById('contact-form').reset();
                     document.getElementById('file-label').textContent = "Sélectionner une photo depuis votre appareil";
                     btn.innerHTML = '<i class="fa-solid fa-paper-plane text-or"></i> Envoyer ma demande à l\'atelier';
